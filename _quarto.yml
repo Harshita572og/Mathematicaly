@@ -1,0 +1,12 @@
+project:
+  title: "Mathematical Experiments Using Code"
+  type: website
+  output-dir: "_site"
+
+format:
+  html:
+    theme: flatly
+    css: styles.css
+    df_print: paged
+editor: visual
+
