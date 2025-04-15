@@ -1,6 +1,47 @@
 ---
-title: "index"
-format: html
+title: "A1 Submission - Version 1"
+author: 
+  - "Aadil Tanwar"
+  - "Harshita K"
+  - "Bunyan Usman"
+  - "Manaswi Sharma"
+  - "Sara Saju"
+date: "2025-03-31"
+categories: ["math", "code", "art"]
 ---
 
-this ius te frisgd
+In the generative garden created with p5.js, natural elements like trees, butterflies, and stones are brought to life using mathematical principles, while the flowers undergo a withering process. This process simulates the gradual loss of vitality over time, reflecting the natural life cycle of flowers.
+
+Using variables x, y, and z, the placement and movement of these elements are controlled, while mathematical techniques like trigonometry, fractals, and parametric equations ensure an organic, dynamic structure. The following sections explore how these techniques are applied to create and wither the flowers in the garden.
+
+*CODE*
+
+::: {#p5-container}
+<<iframe src="https://editor.p5js.org/harshi7530/full/qXWQ768cC" width="800" height="700">
+
+</iframe>
+:::
+
+*EXPLANATION*
+
+In the generative garden created with p5.js, the variables x, y, and z play crucial roles in determining the placement, movement, and organic structure of different elements such as trees, flowers, butterflies, clouds, leaves, and stones. Since p5.js primarily works in a 2D coordinate system, x and y directly control horizontal and vertical positions, while z is used indirectly for randomness or depth simulation. Various mathematical techniques, including trigonometry, fractals, and parametric equations, help generate these natural patterns efficiently and aesthetically.
+
+For the tree branching structure, recursion and trigonometry are used to simulate realistic growth. Each branch extends using the equations x' = x + L cos(θ) and y' = y - L sin(θ), where L represents branch length, and θ is the branch angle. The cosine function determines how much the branch extends horizontally, while sine dictates the vertical shift. This ensures that the tree maintains an organic, natural spread instead of growing in a rigid pattern. To prevent unnatural growth, a recursive scaling factor is applied: L_n = 0.75 × L\_{n-1}. This means that each new branch is 75% of its parent’s length, leading to a progressively shrinking structure that mimics real trees. Additionally, since p5.js uses (0,0) as the top-left corner, subtracting L sin(θ) ensures the tree grows upwards, as decreasing y moves objects upwards in p5.js.
+
+Flowers in the garden follow parametric equations to create symmetrically arranged petals. Each petal’s position follows x = r cos(θ) and y = r sin(θ), where r controls how far the petal extends from the centre and θ determines its angular position. To ensure that the petals do not overlap and follow natural plant growth patterns, the Golden Angle (137.5°) is used, following the equation θ = i × 137.5°. This prevents clustering and ensures that petals are evenly distributed around the centre, similar to how sunflower seeds are arranged in nature. The parametric approach also allows for precise control over petal shapes, ensuring they remain true to the mathematical model of natural flowers.
+
+Butterflies exhibit smooth, periodic wing flapping, which is modelled using sine wave oscillation: flapAngle = sin(t) × 10°. The sine function creates a natural wave-like movement, ensuring the wings move fluidly up and down. The parametric equations x = r cos(a) and y = r sin(a) are used to define the wings' structure, ensuring perfect symmetry. Since sin(t) oscillates continuously, the wings appear to flutter naturally rather than moving in a rigid or artificial manner.
+
+Natural elements like clouds and leaves should not appear perfectly arranged or randomly scattered. Instead, their placement follows fractal mathematics to ensure organic clustering. For clouds, Julia set fractals are used, with placement determined by x = -300 + 200 × Re(z) and y = -200 + 200 × Im(z). Here, Re(z) and Im(z) represent the real and imaginary components of a complex number, introducing flowing randomness to the cloud distribution. This prevents an overly structured or artificial appearance. Similarly, Mandelbrot fractals are used for leaf distribution, following x = Re(z) × leafSize and y = Im(z) × leafSize, ensuring that leaves form clusters rather than appearing uniformly spaced.
+
+To make the stone path look natural, we avoid rigid, straight-line placement. Instead, stones follow an elliptical trajectory given by x = r cos(θ) + random(-40, 40) and y = r sin(θ) + random(-40, 40). The cosine and sine functions ensure that the stones align along a curved path, while random(-40, 40) introduces slight displacement, making the arrangement appear more organic. This method ensures that the path winds naturally, rather than appearing too structured or mechanical.
+
+Users can interact with the generative garden to enhance immersion. Zooming in and out allows close inspection of fractal-generated clouds, petal arrangements, and tree structures. Mouse movements subtly affect object opacity and movement, making the scene feel dynamic and responsive.
+
+By combining trigonometry, fractals, parametric equations, and recursion, the generative garden achieves a balanced, organic look, making it a visually engaging, interactive experience in p5.js.
+
+*NOTE*
+
+The rendering for this generative garden takes quite a long time due to the complexity of the elements and interactions. As a solution, we have created Version 2, which retains all elements except the withering process, and features different flower colours for improved performance.
+
+To enhance the generative garden and optimise its performance, we utilised AI to refine our code structure and seamlessly integrate various mathematical elements. This ensured a more cohesive and efficient design while preserving the intricate natural complexity of the scene.

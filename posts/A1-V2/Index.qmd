@@ -1,0 +1,45 @@
+---
+title: "A1 Submission - Version 2"
+author: 
+  - "Aadil Tanwar"
+  - "Harshita K"
+  - "Bunyan Usman"
+  - "Manaswi"
+  - "Sara Saju"
+date: "2025-03-31"
+categories: ["math", "code", "art"]
+---
+
+This project is a generative 3D garden built using p5.js with the WEBGL, incorporating mathematical concepts such as parametric equations, fractals, and trigonometry to create realistic and interactive elements. The scene features trees, flowers, bushes, butterflies, clouds, and a winding stone path, all positioned dynamically using mathematical functions.
+
+The garden uses trigonometric functions (sine and cosine) to create smooth curves, animate objects, and position elements naturally. Fractal recursion is applied in tree generation, while parametric equations help structure flowers and butterfly wings. User interactions, such as rotating and zooming, enhance engagement by providing an explorable 3D space.
+
+*CODE*
+
+::: {#p5-container}
+<<iframe src="https://editor.p5js.org/Bunyan/full/jo70GGeLl" width="800" height="700">
+
+</iframe>
+:::
+
+*EXPLANATION*
+
+In the generative garden created with p5.js, the variables x, y, and z play crucial roles in determining the placement, movement, and organic structure of different elements such as trees, flowers, butterflies, clouds, leaves, and stones. Since p5.js primarily works in a 2D coordinate system, x and y directly control horizontal and vertical positions, while z is used indirectly for randomness or depth simulation. Various mathematical formulas, including trigonometry, fractals, and parametric equations, help generate these natural patterns in an efficient and visually appealing manner.
+
+For the tree branching structure, recursion and trigonometry are used to simulate realistic growth. Each branch extends using the equations x = x + L cos(θ) and y = y - L sin(θ), where L represents branch length and θ is the branch angle. The cosine function controls the horizontal extension, while the sine function determines the vertical placement. A recursive scaling factor (L_n = 0.75 L\_{n-1}) ensures branches shrink naturally as they grow further, preventing an unnatural linear structure. The subtraction in y - L sin(θ) is necessary because, in p5.js, the (0,0) coordinate starts from the top-left, meaning decreasing y moves objects upward.
+
+Flowers in the generative garden are positioned using parametric equations to create a natural radial pattern. Each petal is placed according to x = r cos(θ) and y = r sin(θ), where r controls the petal's distance from the center, and θ defines its rotation. The use of cos(θ) and sin(θ) ensures symmetry by distributing petals evenly around the center. Additionally, the Golden Angle (137.5°) is used for petal placement, following the formula θ = i × 137.5°, which prevents overlap and natural plant growth patterns. To ensure the flowers closely resemble the original parametric flower structure, care is taken to maintain accurate radial spacing and avoid dist
+
+The butterfly wings exhibit natural motion using sine-based oscillation, modeled as flapAngle = sin(t) × 10°. This equation creates smooth up-and-down movement over time, making the wings appear lifelike. The wings' shapes themselves are generated using x = r cos(a) and y = r sin(a), ensuring they maintain symmetry while flapping. The sine function is particularly useful here because it produces a smooth, periodic motion instead of abrupt or linear movements.
+
+Clouds in the garden are positioned based on Julia set fractals, which introduce organic randomness while maintaining a flowing structure. Their locations follow x = -300 + 200 × Re(z) and y = -200 + 200 × Im(z), where Re(z) and Im(z) represent the real and imaginary components of a complex number. This approach helps generate naturally distributed cloud formations, preventing artificial-looking placements. Similarly, leaves use Mandelbrot fractals for clustering, following x = Re(z) × leafSize and y = Im(z) × leafSize, ensuring the distribution appears random yet structured, unlike simple uniform spacing.
+
+The stone path in the scene follows an elliptical trajectory to simulate a natural winding pathway. Each stone’s position is determined by x = r cos(θ) + random(-40, 40) and y = r sin(θ) + random(-40, 40), where cos(θ) and sin(θ) ensure stones align along a curve while random(-40, 40) introduces natural displacement, making the placement look less artificial. Unlike rigid grid-based positioning, this approach creates a more organic and aesthetically pleasing arrangement.
+
+Users can interact with the garden through mouse movements and zoom. Zooming in and out allows closer inspection of details like fractal-generated clouds and petal arrangements. Mouse interactions provide a more immersive experience, such as hovering over elements to create subtle changes in opacity or movement, making the garden feel dynamic and responsive.
+
+Across all these elements, x controls left-right movement, y dictates up-down positioning, and z is used in fractals and randomness to create depth and natural irregularity. By utilizing trigonometry for circular placements, fractals for organic patterns, and parametric equations for controlled curves, the generative garden achieves a realistic and visually appealing balance.
+
+*NOTE*
+
+To enhance the generative garden and optimise its performance, we utilised AI to refine our code structure and seamlessly integrate various elements. This ensured a more cohesive and efficient.
